@@ -1,0 +1,139 @@
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{attacher}
+\documentclass{article}
+\usepackage{attachfile}
+
+<<eval = FALSE, echo = FALSE, include = FALSE>>=
+old <- setwd("vignettes")
+knitr::knit2pdf("attacher.rnw")
+setwd <- old
+@
+
+
+<<"setup", echo = FALSE, include = FALSE>>=
+library(knitr)
+library(attacher)
+opts_chunk$set(echo = FALSE, include = TRUE, results = 'asis', fig.height = 3, fig.align = 'center', fig.pos = "htb")
+@
+
+\title{attacher}
+\author{Henrik Renlund}
+
+\newcommand{\code}{\texttt}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\listoftables
+\listoffigures
+
+\newpage
+\setcounter{section}{-1}
+\section{About this vignette}
+This vignette works as the test for this package.
+
+\begin{verbatim}
+> This designates R code
+\end{verbatim}
+
+\begin{verbatim}
+# This designates LaTeX code
+\end{verbatim}
+
+\section{The functions}
+
+\subsection{\code{knitr} chunk hook \code{tab.cap}}
+
+\code{tab.cap} is suppose to be analogous to \code{fig.cap}, i.e. given a caption create the appropriate  environment.
+
+\begin{verbatim}
+> <<tab.cap = "The hook gives environment + caption", results = 'asis'>>=
+> kable(mtcars[1:2,1:5], format = "latex")
+> @
+\end{verbatim}
+
+Gives you the following (or very similar) \LaTeX\, code:
+
+\begin{verbatim}
+# \begin{table}[htb]
+#  \caption{The hook gives environment + caption}
+#  \label{tab:chunk-label}
+#  \centering\vspace{0.2cm}
+#  \begin{tabular}{l|r|r|r|r|r}
+#   \hline
+#         & mpg & cyl & disp & hp & drat\\
+#   \hline
+#   Mazda RX4 & 21 & 6 & 160 & 110 & 3.9\\
+#   \hline
+#   Mazda RX4 Wag & 21 & 6 & 160 & 110 & 3.9\\
+#   \hline
+#  \end{tabular}
+# \end{table}
+\end{verbatim}
+
+as well as Table \ref{tab:chunk-label}.
+
+<<"chunk-label", tab.cap = "The hook gives environment + caption">>=
+kable(mtcars[1:2,1:5], format = "latex")
+@
+
+\subsection{Attach a table: \code{tab\_cap}}
+If you use the \code{attachfile} \LaTeX\,package then you can use the \code{tab\_cap} function to include a table with the document. (This is easy to do without this package, the point is to be able to set parameters globally)
+
+\begin{verbatim}
+> <<"with-kable">>=
+> tab <- mtcars[1:2,1:5]
+> kable(tab, format = "latex",
+>       caption = tab_cap(cap = "A caption again.", object = tab, attach = TRUE))
+> @
+\end{verbatim}
+
+The above code gives you a table (but \code{knitr::kable} does not provide a label.
+
+<<"with-kable">>=
+tab <- mtcars[1:2,1:5]
+kable(tab, format = "latex",
+      caption = tab_cap(cap = "A caption again.", object = tab, attach = TRUE))
+@
+
+You can also combine \code{tab\_cap} with \code{tab.cap}. \textbf{N.B.} you can refer to objects created in the chunk if you've set the knit options \code{eval.after} to include \code{tab.cap} (which is begin set when the \code{attacher} package is being attached).
+
+\begin{verbatim}
+> <<"with-tab_cap", tab.cap = tab_cap("Yet another caption", tab, TRUE)>>=
+> tab <- mtcars[1:2,1:5]
+> kable(tab, format = "latex")
+> @
+\end{verbatim}
+
+The above code gives you Table \ref{tab:with-tab_cap}.
+
+<<"with-tab_cap", tab.cap = tab_cap("Yet another caption", tab, TRUE)>>=
+tab <- mtcars[1:2,1:5]
+kable(tab, format = "latex")
+@
+
+\subsection{Attach a plot: \code{fig\_cap}}
+
+Use \code{fig\_cap} to attach a plot.
+
+\begin{verbatim}
+> <<"a-plot", fig.cap = fig_cap("Caption", TRUE)>>=
+> plot(1:10, runif(10), type = "b", xlab = "The X", ylab = "Y!")
+> @
+\end{verbatim}
+
+The above code gives you Figure \ref{fig:a-plot}.
+
+<<"a-plot", fig.cap = fig_cap("Caption", TRUE)>>=
+plot(1:10, runif(10), type = "b", xlab = "The X", ylab = "Y!")
+@
+
+\section{Global options}
+
+Most options can be set globally, with \code{opts\_attacher\$set} (which tries to mimic the behaviour of knitr's \code{opts\_chunk\$set}). The following options are currently available
+
+<<echo = TRUE, results = "markup">>=
+opts_attacher$get()
+@
+
+\end{document}
