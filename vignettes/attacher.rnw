@@ -97,7 +97,7 @@ kable(tab, format = "latex",
       caption = tab_cap(cap = "A caption again.", object = tab, attach = TRUE))
 @
 
-You can also combine \code{tab\_cap} with \code{tab.cap}. \textbf{N.B.} you can refer to objects created in the chunk if you've set the knit options \code{eval.after} to include \code{tab.cap} (which is begin set when the \code{attacher} package is being attached).
+You can also combine \code{tab\_cap} with \code{tab.cap}. \textbf{N.B.} you can refer to objects created in the chunk if you've set the knit options \code{eval.after} to include \code{tab.cap} (which is set when the \code{attacher} package is being attached).
 
 \begin{verbatim}
 > <<"with-tab_cap", tab.cap = tab_cap("Yet another caption", tab, TRUE)>>=

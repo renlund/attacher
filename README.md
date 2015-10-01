@@ -15,3 +15,13 @@ and created an attachment link to this file.
  * There is a way to set most parameters globally.
  
 See the vignette for details.
+
+Installation
+------------
+
+Installation is easy with the `devtools` package.
+
+```r
+library(devtools)
+install_github("renlund/attacher")
+```
