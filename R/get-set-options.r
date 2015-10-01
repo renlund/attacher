@@ -39,19 +39,17 @@ attacher_set <- function(...){
     invisible(NULL)
 }
 
-# @title attacher_restore
-# @description this function restores the default attacher settings
+# ' @describeIn opts_attacher
+# ' @description this function restores the default attacher settings
 
 attacher_restore <- function(){
     assign(x="defaults", value=list(
         attach_graph = FALSE,
         attach_table = FALSE,
         table_path = "attacher_tables",
-        # attach_to_lists = FALSE, # NOT IMPLEMENTED YET
         graph_dev = "pdf",
         table_fnc = utils::write.csv,
         table_ext = "csv"
-        #loft = list(figure = list(), table=list())
     ), envir=attacher_defaults)
     assign(x="value", value = names(get(x="defaults", envir=attacher_defaults)), envir=attacher_defaults)
     invisible(NULL)
@@ -62,16 +60,16 @@ attacher_restore <- function(){
 #' Currently these values are maintained with the functions in (the list)
 #' \code{opts_attacher}:
 #' \itemize{
-#' \item attach_graph - use \code{figh} in \code{fig.caption}
+#' \item attach_graph - use \code{fig_cap} in \code{fig.caption}
 #' (in a \code{knitr} chunk), i.e. \code{fig.caption = figh("My Caption")},
 #' this forces \code{figh} to include an attach-statement
 #' pointing to the relevant figure in 'figure/' .
-#' \item attach_table - this .... needs documentation
-#' \item table_path a subdirectory in which to store table files
-#' \item graph_dev - graphical extension
-#' \item table_ext the extension for the table files
-#' \item table_fnc - this is the function to write the \code{tableh}-table
-#' to file
+#' \item attach_table - if TRUE attached tables in caption created with \code{tab_cap} (default FALSE)
+#' \item table_path a subdirectory in which to store table files (default "attacher_tables")
+#' \item graph_dev - graphical extension (default "pdf")
+#' \item table_ext the extension for the table files (default "csv")
+#' \item table_fnc - this is the function to write the \code{object} argument in \code{tab_cap}
+#' to file (default \code{utils::write.csv})
 #' }
 
 #' @export

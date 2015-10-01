@@ -9,3 +9,7 @@ License: GPL-3
 Depends:
     knitr
 LazyData: TRUE
+Suggests: knitr,
+    rmarkdown,
+    qpdf
+VignetteBuilder: knitr

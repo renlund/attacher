@@ -7,13 +7,13 @@
 \format{\preformatted{List of 3
  $ get    :function (name)  
   ..- attr(*, "srcref")=Class 'srcref'  atomic [1:8] 13 17 25 1 17 1 13 25
-  .. .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x00000000159e06f8> 
+  .. .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x0000000015163e48> 
  $ set    :function (...)  
   ..- attr(*, "srcref")=Class 'srcref'  atomic [1:8] 31 17 40 1 17 1 31 40
-  .. .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x00000000159e06f8> 
+  .. .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x0000000015163e48> 
  $ restore:function ()  
-  ..- attr(*, "srcref")=Class 'srcref'  atomic [1:8] 45 21 58 1 21 1 45 58
-  .. .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x00000000159e06f8> 
+  ..- attr(*, "srcref")=Class 'srcref'  atomic [1:8] 45 21 56 1 21 1 45 56
+  .. .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' <environment: 0x0000000015163e48> 
 }}
 \usage{
 opts_attacher
@@ -23,16 +23,16 @@ This list tries to mimic the behaviour of opts_chunk from knitr.
 Currently these values are maintained with the functions in (the list)
 \code{opts_attacher}:
 \itemize{
-\item attach_graph - use \code{figh} in \code{fig.caption}
+\item attach_graph - use \code{fig_cap} in \code{fig.caption}
 (in a \code{knitr} chunk), i.e. \code{fig.caption = figh("My Caption")},
 this forces \code{figh} to include an attach-statement
 pointing to the relevant figure in 'figure/' .
-\item attach_table - this .... needs documentation
-\item table_path a subdirectory in which to store table files
-\item graph_dev - graphical extension
-\item table_ext the extension for the table files
-\item table_fnc - this is the function to write the \code{tableh}-table
-to file
+\item attach_table - if TRUE attached tables in caption created with \code{tab_cap} (default FALSE)
+\item table_path a subdirectory in which to store table files (default "attacher_tables")
+\item graph_dev - graphical extension (default "pdf")
+\item table_ext the extension for the table files (default "csv")
+\item table_fnc - this is the function to write the \code{object} argument in \code{tab_cap}
+to file (default \code{utils::write.csv})
 }
 }
 \keyword{datasets}
