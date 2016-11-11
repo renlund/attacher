@@ -61,10 +61,13 @@ attacher_restore <- function(){
 #' \code{opts_attacher}:
 #' \itemize{
 #' \item attach_graph - use \code{fig_cap} in \code{fig.caption}
-#' (in a \code{knitr} chunk), i.e. \code{fig.caption = figh("My Caption")},
-#' this forces \code{figh} to include an attach-statement
+#' (in a \code{knitr} chunk), i.e. \code{fig.caption = fig_cap("My Caption")},
+#' this forces \code{fig_cap} to include an attach-statement
 #' pointing to the relevant figure in 'figure/' .
-#' \item attach_table - if TRUE attached tables in caption created with \code{tab_cap} (default FALSE)
+#' \item attach_table - if TRUE attached tables in caption created
+#'     with \code{tab_cap} (default FALSE). You can use the added hook
+#'     'tab.cap' (analogous to knitr 'fig.cap'), i.e. \code{tab.cap =
+#'     tab_cap("My caption", ...)}.
 #' \item table_path a subdirectory in which to store table files (default "attacher_tables")
 #' \item graph_dev - graphical extension (default "pdf")
 #' \item table_ext the extension for the table files (default "csv")

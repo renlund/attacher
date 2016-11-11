@@ -1,7 +1,7 @@
 Package: attacher
 Type: Package
 Title: Attach Graphs and Figures to PDF:s
-Version: 0.0.0.9000
+Version: 0.0.0.9123
 Author: Henrik Renlund
 Maintainer: Henrik Renlund <henrikrenlund@gmail.com>
 Description: Functions to make use of the LaTeX attachfile package.
@@ -9,7 +9,9 @@ License: GPL-3
 Depends:
     knitr
 LazyData: TRUE
-Suggests: knitr,
+Suggests:
+    knitr,
     rmarkdown,
     qpdf
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1
