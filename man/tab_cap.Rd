@@ -21,4 +21,3 @@ be taken from \code{opts_proh$get('attach_graph')}}
 \description{
 Attach a table ...
 }
-

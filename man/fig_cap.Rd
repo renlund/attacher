@@ -30,4 +30,3 @@ Beware if you want different extension in the attachment than
   \\DeclareGraphicsExtensions\{.pdf,.eps,.png,.jpg,jpeg\} in the preamble
   of you LaTeX document.
 }
-

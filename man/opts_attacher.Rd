@@ -29,4 +29,3 @@ to file (default \code{utils::write.csv})
 }
 }
 \keyword{datasets}
-

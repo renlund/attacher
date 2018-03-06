@@ -3,13 +3,11 @@
 
 # @title attacher_defaults
 # @description an environment
-
 attacher_defaults <- new.env(parent = getNamespace("attacher"))
 
 # @title attacher_get
 # @description this function retrieves the proh settings
 # @param name name of proh setting variable
-
 attacher_get <- function(name){
     if(length(ls(envir=attacher_defaults))==0) attacher_restore()
     defaults <- get("defaults", envir=attacher_defaults)
@@ -27,7 +25,6 @@ attacher_get <- function(name){
 # @title attacher_set
 # @description this function sets the attacher settings
 # @param ... the names and values you want set, e.g. \code{"add_graph"=TRUE}
-
 attacher_set <- function(...){
     if(length(ls(envir=attacher_defaults))==0) attacher_restore()
     dots <- list(...)
@@ -41,7 +38,6 @@ attacher_set <- function(...){
 
 # ' @describeIn opts_attacher
 # ' @description this function restores the default attacher settings
-
 attacher_restore <- function(){
     assign(x="defaults", value=list(
         attach_graph = FALSE,
@@ -51,7 +47,9 @@ attacher_restore <- function(){
         table_fnc = utils::write.csv,
         table_ext = "csv"
     ), envir=attacher_defaults)
-    assign(x="value", value = names(get(x="defaults", envir=attacher_defaults)), envir=attacher_defaults)
+    assign(x="value",
+           value = names(get(x="defaults", envir=attacher_defaults)),
+           envir=attacher_defaults)
     invisible(NULL)
 }
 
@@ -74,9 +72,7 @@ attacher_restore <- function(){
 #' \item table_fnc - this is the function to write the \code{object} argument in \code{tab_cap}
 #' to file (default \code{utils::write.csv})
 #' }
-
 #' @export
-
 opts_attacher <- list(
     "get" = attacher_get,
     "set" = attacher_set,

@@ -14,7 +14,6 @@
 #'
 #' @references \url{http://yihui.name/knitr/hooks#chunk_hooks}
 #' @import knitr
-
 hook_tab.cap <- function(){
     hook_chunk <- knit_hooks$get("chunk")
     function(x, options) {

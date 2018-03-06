@@ -7,7 +7,6 @@
 #' @param label label to use (defaults to "tab:<chunk-label>")
 #' @param ext extension for file
 #' @export
-
 tab_cap <- function(cap, object, attach = NULL, label = NULL,  ext = NULL){
     if(is.null(label)) {
         label <- paste0("tab:", knitr::opts_current$get("label"))
@@ -28,7 +27,6 @@ tab_cap <- function(cap, object, attach = NULL, label = NULL,  ext = NULL){
     }
 }
 
-
 #' @title Caption generator
 #' @description Use this with chunk option \code{fig.cap} to attach a copy
 #' of the produced graphic in the resulting pdf.
@@ -46,7 +44,6 @@ tab_cap <- function(cap, object, attach = NULL, label = NULL,  ext = NULL){
 #'   \\DeclareGraphicsExtensions\{.pdf,.eps,.png,.jpg,jpeg\} in the preamble
 #'   of you LaTeX document.
 #' @export
-
 fig_cap <- function(cap, attach = NULL, ext = NULL, warn = TRUE){
     if(is.null(attach)) attach <- opts_attacher$get("attach_graph")
     if(attach){

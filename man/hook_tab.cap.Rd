@@ -23,4 +23,3 @@ the function hook_tab.cap is set as a hook in \pkg{knitr} when
 \references{
 \url{http://yihui.name/knitr/hooks#chunk_hooks}
 }
-

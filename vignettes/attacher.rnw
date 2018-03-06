@@ -9,12 +9,16 @@ knitr::knit2pdf("attacher.rnw")
 setwd <- old
 @
 
-
 <<"setup", echo = FALSE, include = FALSE>>=
 library(knitr)
 library(attacher)
 data(mtcars)
-opts_chunk$set(echo = FALSE, include = TRUE, results = 'asis', fig.height = 3, fig.align = 'center', fig.pos = "htb")
+opts_chunk$set(echo = FALSE,
+               include = TRUE,
+               results = 'asis',
+               fig.height = 3,
+               fig.align = 'center',
+               fig.pos = "htb")
 @
 
 \title{attacher}
