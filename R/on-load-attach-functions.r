@@ -5,7 +5,9 @@
 
 .onAttach = function(libname, pkgname){
     knit_hooks$set(chunk = hook_tab.cap())
-    packageStartupMessage('[package:attacher]: knitr hook "tab.cap" is now available')
+    packageStartupMessage(paste0('[package:attacher]: knitr hook "tab.cap" is now available.\n',
+                                 'NOTE: this package is obsolete and not maintained (and',
+                                 ' possibly not great to begin with).')
     evalq(opts_knit$set(eval.after = c("tab.cap", "fig.cap", "fig.scap")), ## "tab.scap",
           envir = getNamespace('knitr'))
 }

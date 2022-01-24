@@ -49,7 +49,8 @@ This vignette works as the test for this package.
 
 \subsection{\code{knitr} chunk hook \code{tab.cap}}
 
-\code{tab.cap} is suppose to be analogous to \code{fig.cap}, i.e. given a caption create the appropriate  environment.
+\code{tab.cap} is suppose to be analogous to \code{fig.cap}, i.e. given a
+caption create the appropriate environment.
 
 \begin{verbatim}
 > <<tab.cap = "The hook gives environment + caption", results = 'asis'>>=

@@ -1,8 +1,9 @@
-[![Travis-CI Build Status](https://travis-ci.org/renlund/attacher.svg?branch=master)](https://travis-ci.org/renlund/attacher)
+Note to self
+-------------
 
-
-**NB** this package is somewhat unreliable, but I have yet to figure out
-why.
+ + This package is not used or maintained. What might be useful is idiosyncratic
+   enough to move to package **hproj**
+ + This package is somewhat unreliable, but I have yet to figure out why.
 
 attacher
 --------
